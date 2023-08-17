@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список тендерів</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<h1>Список тендерів</h1>
+<p>Загальна сума: {{ total_amount }}</p>
+<table>
+    <thead>
+    <tr>
+        <th>ID тендера</th>
+        <th>Сума</th>
+        <th>Опис</th>
+        <th>Дата</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for tender in tenders %}
+    <tr>
+        <td>{{ tender.tender_id}}</td>
+        <td>{{ tender.amount }}</td>
+        <td>{{ tender.description }}</td>
+        <td>{{ tender.date_modified }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
